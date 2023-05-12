@@ -1,5 +1,10 @@
 # RealtimeFlights
 
+App is hosted live at:  https://realtime-flights-angular.vercel.app/
+
+
+--------------------------------------------------------------------------------------------
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.7.
 
 ## Development server
