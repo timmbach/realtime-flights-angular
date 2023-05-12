@@ -4,6 +4,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { FormControl } from '@angular/forms';
 import { FlightService } from 'src/app/services/flight.service';
 import { IFlight } from 'src/app/models/flight.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -31,7 +32,9 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private _auth: AngularFireAuth,
-    private _flightService: FlightService
+    private _authService: AuthService,
+    private _flightService: FlightService,
+    private router: Router
   ) {}
 
   // public startDate: string = '';
@@ -69,6 +72,23 @@ export class DashboardComponent implements OnInit {
         }
       );
     }
+  }
+
+  logout() {
+    this._authService
+      .logout()
+      .then(
+        () => {
+          localStorage.removeItem('token');
+          this.router.navigate(['/login']);
+        },
+        (err) => {
+          this.errorMessage = err.message;
+        }
+      )
+      .catch((error) => {
+        console.log(error);
+      });
   }
 }
 

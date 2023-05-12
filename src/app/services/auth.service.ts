@@ -39,15 +39,16 @@ export class AuthService {
   }
 
   logout() {
-    this._auth.signOut().then(
-      () => {
-        localStorage.removeItem('token');
-        this.router.navigate(['/login']);
-      },
-      (err) => {
-        alert(err.message);
-      }
-    );
+    return this._auth.signOut();
+    // .then(
+    //   () => {
+    //     localStorage.removeItem('token');
+    //     this.router.navigate(['/login']);
+    //   },
+    //   (err) => {
+    //     alert(err.message);
+    //   }
+    // );
   }
 
   seeUser() {
