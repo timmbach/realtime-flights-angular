@@ -91,5 +91,3 @@ export class DashboardComponent implements OnInit {
       });
   }
 }
-
-// const dateTimeString = new Date(dateString).toUTCString();
