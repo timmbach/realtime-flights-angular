@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthService {
+  isLoggedIn = false;
+  redirectUrl: string = '/';
   constructor(private _auth: AngularFireAuth, private router: Router) {}
 
   signIn(email: string, password: string) {
